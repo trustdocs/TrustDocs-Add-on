@@ -1,0 +1,59 @@
+<div id="wrapper">
+  <div class="sectionHeader add-underline2" >
+      
+  </div>
+
+  <div class="sectionContent" >
+      <div class="centererxx">
+          
+          <label id="new-email-label" for="newemail" >Email</label>
+          <input id="newemail" type="text" />
+          
+          <span id="addNewEmailButton" class="button blueButton" >&nbsp;&nbsp; Add &nbsp;&nbsp;</span>
+      </div>
+  </div>
+  
+  <div class="sectionFooter" >
+      <div>
+         
+      </div>
+  </div>
+</div>
+
+
+
+<?!= HtmlService.createHtmlOutputFromFile('Style').getContent();  ?>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script>
+
+  $(document).ready(function(){
+    
+    $('#addNewEmailButton').click(addNewEmail);
+    
+  }); 
+  
+  function addNewEmail() {
+  
+     console.log("fn. addNewEmail was called");
+    
+     google.script.run.withSuccessHandler(function(addedSuccess){
+     
+       if (addedSuccess) {
+       
+          console.log('console: Add new email successfully.');
+          alert("ALERT: Add new email successfully.");
+       } else {
+       
+          console.log('console: Add new email failure.');
+          alert("ALERT: Add new email failure.");
+       }
+       
+       
+     }).addNewEmail( $('#newemail').val() );
+     
+  }
+</script>
